@@ -1,4 +1,4 @@
-﻿FROM mcr.microsoft.com/playwright:v1.16.0 AS base
+﻿FROM mcr.microsoft.com/playwright:v1.16.1 AS base
 RUN curl https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -o packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb
 RUN apt update && \

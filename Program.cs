@@ -8,7 +8,7 @@ namespace PlaywrightRepro
         public static async Task Main()
         {
             using var playwright = await Playwright.CreateAsync();
-            await using var browser = await playwright.Chromium.LaunchAsync(new() { Headless = false });
+            await using var browser = await playwright.Chromium.LaunchAsync(new() { Headless = true });
             var page = await browser.NewPageAsync();
             await page.GotoAsync("https://playwright.dev/dotnet");
             await page.ScreenshotAsync(new() { Path = "screenshot.png" });
