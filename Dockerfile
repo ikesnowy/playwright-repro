@@ -1,4 +1,5 @@
 ﻿FROM mcr.microsoft.com/playwright:v1.16.1 AS base
+ENV DEBUG=pw:api
 RUN curl https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -o packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb
 RUN apt update && \
