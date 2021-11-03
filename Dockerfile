@@ -1,14 +1,13 @@
 ﻿FROM mcr.microsoft.com/playwright:v1.16.0 AS base
 RUN curl https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -o packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb
-RUN rm /etc/apt/sources.list.d/nodesource.list
 RUN apt update && \
     apt install -y apt-transport-https && \
     apt update && \
-    apt install -y dotnet-sdk-5.0
+    apt install -y dotnet-runtime-5.0
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
 COPY ["PlaywrightRepro.csproj", "./"]
 RUN dotnet restore "PlaywrightRepro.csproj"
